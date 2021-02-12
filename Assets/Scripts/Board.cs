@@ -16,6 +16,7 @@ public class Board : MonoBehaviour
     public int offSet;
     public GameObject tilePrefabs;
     public GameObject[] dots;
+    public GameObject destroyEffect;
     public GameObject[,] allDots;
     private BackgroundTile[,] allTiles;
     private FindMatches findMatches;
@@ -102,6 +103,10 @@ public class Board : MonoBehaviour
         if (allDots[column, row].GetComponent<Dot>().isMatched)
         {
             findMatches.currentMatches.Remove(allDots[column, row]);
+            //
+            GameObject partice = Instantiate(destroyEffect, allDots[column, row].transform.position, Quaternion.identity);
+            Destroy(partice, .5f);
+            //
             Destroy(allDots[column, row]);
             allDots[column, row] = null;
         }
