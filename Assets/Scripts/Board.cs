@@ -109,8 +109,6 @@ public class Board : MonoBehaviour
                 findMatches.CheckBombs();
             }
             //
-            findMatches.currentMatches.Remove(allDots[column, row]);
-            //
             GameObject partice = Instantiate(destroyEffect, allDots[column, row].transform.position, Quaternion.identity);
             Destroy(partice, .5f);
             //
@@ -131,6 +129,7 @@ public class Board : MonoBehaviour
             }
         }
 
+        findMatches.currentMatches.Clear();
         StartCoroutine(DecreaseRowCo());
     }
     private IEnumerator DecreaseRowCo()

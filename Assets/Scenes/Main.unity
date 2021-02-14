@@ -317,3 +317,4 @@ MonoBehaviour:
   - {fileID: 3361055441933948188, guid: 48195622223cac349a06bc48c319348f, type: 3}
   - {fileID: 2168834982956019196, guid: f1ed5959687524b4abe932bbd31f1c30, type: 3}
   destroyEffect: {fileID: 3252700179451079607, guid: 9bc95c52ee1f03743a16b8e87c1be24b, type: 3}
+  currentDot: {fileID: 0}
