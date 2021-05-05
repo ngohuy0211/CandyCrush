@@ -4,25 +4,33 @@ using UnityEngine;
 
 public class BackgroundTile : MonoBehaviour
 {
-    //public GameObject[] dots;
+    public int hitPoints;
+    private SpriteRenderer sprite;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        Initialize();
+        sprite = GetComponent<SpriteRenderer>();
+    }
+    private void Update()
+    {
+        if (hitPoints <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-        
+        hitPoints -= damage;
+        MakeLighter();
     }
 
-    void Initialize()
+    void MakeLighter()
     {
-    //    int dotToUse = Random.Range(0, dots.Length);
-    //    GameObject dot = Instantiate(dots[dotToUse], transform.position, Quaternion.identity);
-    //    dot.transform.parent = this.transform;
-    //    dot.name = this.gameObject.name;
+        //Take the current color
+        Color color = sprite.color;
+        //Get the current color's alpha value and cut it in half
+        float newAlpha = color.a * .5f;
+        sprite.color = new Color(color.r, color.g, color.b, newAlpha);
     }
 }

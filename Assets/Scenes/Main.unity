@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420030}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -259,6 +260,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42760ce235844104c827a692b2d8ce64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraOffset: -10
+  aspectRatio: 0.625
+  padding: 2
 --- !u!1 &2026127625
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,8 +321,9 @@ MonoBehaviour:
   currentState: 1
   width: 7
   height: 10
-  offSet: 20
+  offSet: 10
   tilePrefabs: {fileID: 6922171706730817487, guid: 92b535abdf8450c4cb9eb9388b16ea9f, type: 3}
+  breakableTilePrefabs: {fileID: 6914582176026881296, guid: 313780ba7f4bbff4991373f6cacb285a, type: 3}
   dots:
   - {fileID: 1091551042015488607, guid: ae4447cfc061f6940a21f9f24f417891, type: 3}
   - {fileID: 4186954739843027008, guid: 591289f1e4b8c4746a2cdbc89890796c, type: 3}
@@ -317,4 +334,41 @@ MonoBehaviour:
   - {fileID: 3361055441933948188, guid: 48195622223cac349a06bc48c319348f, type: 3}
   - {fileID: 2168834982956019196, guid: f1ed5959687524b4abe932bbd31f1c30, type: 3}
   destroyEffect: {fileID: 3252700179451079607, guid: 9bc95c52ee1f03743a16b8e87c1be24b, type: 3}
+  boardLayout:
+  - x: 0
+    y: 0
+    tileKind: 0
+  - x: 6
+    y: 9
+    tileKind: 0
+  - x: 6
+    y: 0
+    tileKind: 0
+  - x: 0
+    y: 9
+    tileKind: 0
+  - x: 4
+    y: 4
+    tileKind: 0
+  - x: 5
+    y: 4
+    tileKind: 0
+  - x: 3
+    y: 4
+    tileKind: 0
+  - x: 2
+    y: 4
+    tileKind: 0
+  - x: 1
+    y: 4
+    tileKind: 0
+  - x: 1
+    y: 5
+    tileKind: 1
+  - x: 1
+    y: 6
+    tileKind: 1
+  - x: 1
+    y: 7
+    tileKind: 1
   currentDot: {fileID: 0}
