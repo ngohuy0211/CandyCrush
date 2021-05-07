@@ -13,6 +13,7 @@ public class Dot : MonoBehaviour
     public int targetY;
     public bool isMatched = false;
 
+    private HintManager hintManager;
     private FindMatches findMatches;
     private Board board;
     public GameObject otherDot;
@@ -43,6 +44,7 @@ public class Dot : MonoBehaviour
         isColorBomb = false;
         isAdjacentBomb = false;
 
+        hintManager = FindObjectOfType<HintManager>();
         board = FindObjectOfType<Board>();
         findMatches = FindObjectOfType<FindMatches>();
         //targetX = (int)transform.position.x;
@@ -68,15 +70,6 @@ public class Dot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-        //if (isMatched)
-        //{
-        //    SpriteRenderer mySprite = GetComponent<SpriteRenderer>();
-        //    Color currentColor = mySprite.color;
-        //    mySprite.color = new Color(currentColor.r, currentColor.g, currentColor.b, .5f);
-        //}
-
         targetX = column;
         targetY = row;
         if (Mathf.Abs(targetX - transform.position.x) > .1)
@@ -150,17 +143,21 @@ public class Dot : MonoBehaviour
             {
                 board.DestroyMatches();
             }
-            //otherDot = null;
         }
     }
 
     private void OnMouseDown()
     {
+        //Destroy the hint
+        if(hintManager != null)
+        {
+            hintManager.DestroyHint();
+        }
+        //
         if (board.currentState == GameState.move)
         {
             firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
-        // CalculateAngle();
     }
     private void OnMouseUp()
     {
