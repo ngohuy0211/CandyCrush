@@ -60,8 +60,8 @@ public class Dot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            isAdjacentBomb = true;
-            GameObject marker = Instantiate(adjacentMarker, transform.position, Quaternion.identity);
+            isColorBomb = true;
+            GameObject marker = Instantiate(colorBomb, transform.position, Quaternion.identity);
             marker.transform.parent = this.transform;
         }
     }
@@ -301,7 +301,6 @@ public class Dot : MonoBehaviour
     }
 
     //Make Bomb in a Scene
-
     public void MakeRowBomb()
     {
         isRowBomb = true;
@@ -321,12 +320,13 @@ public class Dot : MonoBehaviour
         isColorBomb = true;
         GameObject color = Instantiate(colorBomb, transform.position, Quaternion.identity);
         color.transform.parent = this.transform;
+        this.gameObject.tag = "Color";
     }
     
     public void MakeAdjacentBomb()
     {
         isAdjacentBomb = true;
-        GameObject maker = Instantiate(adjacentMarker, transform.position, Quaternion.identity);
-        maker.transform.parent = this.transform;
+        GameObject adjacent = Instantiate(adjacentMarker, transform.position, Quaternion.identity);
+        adjacent.transform.parent = this.transform;
     }
 }
